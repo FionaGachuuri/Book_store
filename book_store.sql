@@ -105,3 +105,9 @@ CREATE TABLE order_line (
     FOREIGN KEY (order_id) REFERENCES cust_order(order_id),
     FOREIGN KEY (book_id) REFERENCES book(book_id)
 );
+
+CREATE TABLE shipping_method (
+    method_id INT PRIMARY KEY AUTO_INCREMENT,
+    method_name VARCHAR(100),
+    cost DECIMAL(10, 2)
+);
