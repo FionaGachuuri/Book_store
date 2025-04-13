@@ -111,3 +111,17 @@ CREATE TABLE shipping_method (
     method_name VARCHAR(100),
     cost DECIMAL(10, 2)
 );
+
+CREATE TABLE order_history (
+    history_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT,
+    status_id INT,
+    change_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES cust_order(order_id),
+    FOREIGN KEY (status_id) REFERENCES order_status(status_id)
+);
+
+CREATE TABLE order_status (
+    status_id INT PRIMARY KEY AUTO_INCREMENT,
+    status_description VARCHAR(50)
+);
