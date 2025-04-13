@@ -97,13 +97,11 @@ CREATE TABLE cust_order (
     FOREIGN KEY (status_id) REFERENCES order_status(status_id)
 );
 
-CREATE TABLE cust_order (
-    order_id INT PRIMARY KEY AUTO_INCREMENT,
-    customer_id INT,
-    order_date DATE,
-    shipping_method_id INT,
-    status_id INT,
-    FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
-    FOREIGN KEY (shipping_method_id) REFERENCES shipping_method(method_id),
-    FOREIGN KEY (status_id) REFERENCES order_status(status_id)
+CREATE TABLE order_line (
+    order_line_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT,
+    book_id INT,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES cust_order(order_id),
+    FOREIGN KEY (book_id) REFERENCES book(book_id)
 );
