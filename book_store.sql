@@ -96,3 +96,14 @@ CREATE TABLE cust_order (
     FOREIGN KEY (shipping_method_id) REFERENCES shipping_method(method_id),
     FOREIGN KEY (status_id) REFERENCES order_status(status_id)
 );
+
+CREATE TABLE cust_order (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    order_date DATE,
+    shipping_method_id INT,
+    status_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
+    FOREIGN KEY (shipping_method_id) REFERENCES shipping_method(method_id),
+    FOREIGN KEY (status_id) REFERENCES order_status(status_id)
+);
